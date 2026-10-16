@@ -1,0 +1,15 @@
+ai-ml/
+backend/
+db/
+download/
+upload/
+tool-results/
+tests/
+examples/
+skills/
+.zscripts/
+frontend/out/
+__pycache__/
+*.pyc
+.DS_Store
+Thumbs.db

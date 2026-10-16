@@ -1,7 +1,7 @@
 {
-  "buildCommand": "bun run build:static",
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "buildCommand": "cd frontend && next build",
   "outputDirectory": "frontend/out",
-  "framework": null,
-  "redirects": [],
-  "rewrites": []
+  "framework": "nextjs",
+  "installCommand": "bun install"
 }
