@@ -1,0 +1,26 @@
+{
+  "baseline": {
+    "attendance": 78.3032,
+    "study_hours_per_week": 12.1313,
+    "sleep_hours": 6.5172,
+    "extracurricular_hours": 4.1483,
+    "assignment_score": 72.0713,
+    "internal_assessment_1": 67.1453,
+    "internal_assessment_2": 69.4101,
+    "previous_semester_gpa": 6.7657,
+    "avg_internal_score": 68.2777,
+    "engagement_index": 9.5052,
+    "gender_enc": 0.5342,
+    "parental_support_enc": 1.2217,
+    "family_income_level_enc": 1.2567,
+    "internet_access_enc": 0.8608,
+    "part_time_job_enc": 0.2375
+  },
+  "categorical_modes": {
+    "gender": "Male",
+    "parental_support": "Medium",
+    "family_income_level": "Medium",
+    "internet_access": "Yes",
+    "part_time_job": "No"
+  }
+}

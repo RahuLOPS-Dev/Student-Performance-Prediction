@@ -1,0 +1,12 @@
+[build]
+  command = "bun run build:static"
+  publish = "frontend/out"
+
+[build.environment]
+  NODE_VERSION = "20"
+
+# SPA-style routing: all routes serve index.html (single-page app)
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200

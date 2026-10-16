@@ -1,0 +1,130 @@
+{
+  "raw_rows": 1215,
+  "clean_rows": 1200,
+  "columns": 15,
+  "duplicates_removed": 15,
+  "missing_before": 65,
+  "missing_after": 0,
+  "numeric_features": 10,
+  "categorical_features": 5,
+  "engineered_features": 2,
+  "describe": {
+    "attendance": {
+      "count": 1200.0,
+      "mean": 78.303,
+      "std": 11.431,
+      "min": 47.062,
+      "25%": 70.5,
+      "50%": 78.6,
+      "75%": 86.125,
+      "max": 100.0
+    },
+    "study_hours_per_week": {
+      "count": 1200.0,
+      "mean": 12.131,
+      "std": 4.863,
+      "min": 0.0,
+      "25%": 8.8,
+      "50%": 12.1,
+      "75%": 15.4,
+      "max": 25.3
+    },
+    "sleep_hours": {
+      "count": 1200.0,
+      "mean": 6.517,
+      "std": 1.228,
+      "min": 3.0,
+      "25%": 5.7,
+      "50%": 6.5,
+      "75%": 7.4,
+      "max": 10.0
+    },
+    "extracurricular_hours": {
+      "count": 1200.0,
+      "mean": 4.148,
+      "std": 2.701,
+      "min": 0.0,
+      "25%": 2.1,
+      "50%": 4.05,
+      "75%": 6.0,
+      "max": 13.5
+    },
+    "assignment_score": {
+      "count": 1200.0,
+      "mean": 72.071,
+      "std": 14.914,
+      "min": 29.9,
+      "25%": 61.4,
+      "50%": 72.25,
+      "75%": 82.4,
+      "max": 100.0
+    },
+    "internal_assessment_1": {
+      "count": 1200.0,
+      "mean": 67.145,
+      "std": 13.612,
+      "min": 30.738,
+      "25%": 58.075,
+      "50%": 67.7,
+      "75%": 76.3,
+      "max": 100.0
+    },
+    "internal_assessment_2": {
+      "count": 1200.0,
+      "mean": 69.41,
+      "std": 13.715,
+      "min": 33.288,
+      "25%": 60.475,
+      "50%": 69.6,
+      "75%": 78.6,
+      "max": 100.0
+    },
+    "previous_semester_gpa": {
+      "count": 1200.0,
+      "mean": 6.766,
+      "std": 1.329,
+      "min": 2.61,
+      "25%": 5.83,
+      "50%": 6.75,
+      "75%": 7.71,
+      "max": 10.0
+    },
+    "avg_internal_score": {
+      "count": 1200.0,
+      "mean": 68.278,
+      "std": 9.89,
+      "min": 37.119,
+      "25%": 61.688,
+      "50%": 68.15,
+      "75%": 74.912,
+      "max": 97.35
+    },
+    "engagement_index": {
+      "count": 1200.0,
+      "mean": 9.505,
+      "std": 4.111,
+      "min": 0.0,
+      "25%": 6.648,
+      "50%": 9.189,
+      "75%": 12.192,
+      "max": 22.756
+    },
+    "final_exam_score": {
+      "count": 1200.0,
+      "mean": 72.241,
+      "std": 11.22,
+      "min": 42.112,
+      "25%": 64.8,
+      "50%": 72.4,
+      "75%": 79.925,
+      "max": 100.0
+    }
+  },
+  "target_stats": {
+    "mean": 72.24,
+    "std": 11.22,
+    "min": 42.11,
+    "max": 100.0,
+    "median": 72.4
+  }
+}
