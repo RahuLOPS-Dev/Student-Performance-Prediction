@@ -21,7 +21,7 @@ export const metadata: Metadata = {
   keywords: ["machine learning", "student performance", "gradient boosting", "scikit-learn", "regression", "education analytics"],
   authors: [{ name: "AIML Summer Internship 2026" }],
   icons: {
-    icon: "https://z-cdn.chatglm.cn/z-ai/static/logo.svg",
+    icon: "/logo.svg",
   },
   openGraph: {
     title: "Student Performance Prediction System",
