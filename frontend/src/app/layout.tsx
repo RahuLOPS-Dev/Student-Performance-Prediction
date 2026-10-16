@@ -19,7 +19,7 @@ export const metadata: Metadata = {
   title: "Student Performance Prediction System",
   description: "ML system that predicts a student's final exam score from academic & behavioral indicators. Gradient Boosting model trained on 1,200 records with client-side inference.",
   keywords: ["machine learning", "student performance", "gradient boosting", "scikit-learn", "regression", "education analytics"],
-  authors: [{ name: "AIML Summer Internship 2026" }],
+  authors: [{ name: "CSE Summer Training Project 2026" }],
   icons: {
     icon: "/logo.svg",
   },

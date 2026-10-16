@@ -91,13 +91,12 @@ export default function SiteNav() {
               // Simulate Cmd+K by dispatching the keydown
               window.dispatchEvent(new KeyboardEvent("keydown", { key: "k", metaKey: true, bubbles: true }));
             }}
-            className="hidden items-center gap-1 rounded-md border bg-muted/40 px-2 py-1 text-[11px] font-medium text-muted-foreground transition hover:bg-muted hover:text-foreground sm:inline-flex"
+            className="inline-flex items-center gap-1.5 rounded-md border bg-muted/40 px-2.5 py-1.5 text-xs font-medium text-muted-foreground transition hover:bg-muted hover:text-foreground"
             aria-label="Open command palette"
             title="Search sections (⌘K)"
           >
-            <Search className="h-3 w-3" />
-            <span>Search</span>
-            <kbd className="rounded border bg-background px-1 text-[9px]">⌘K</kbd>
+            <Search className="h-4 w-4 shrink-0" />
+            <kbd className="rounded border bg-background px-1 text-[9px] font-semibold">⌘K</kbd>
           </button>
           <ThemeToggle />
           <Button size="sm" onClick={() => scrollTo("predictor")} className="hidden sm:inline-flex">

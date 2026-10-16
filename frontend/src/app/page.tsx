@@ -68,7 +68,7 @@ export default async function Home() {
           <div className="mx-auto max-w-3xl text-center">
             <div className="mb-4 inline-flex items-center gap-2 rounded-full border bg-card px-3 py-1 text-xs font-medium text-muted-foreground shadow-sm">
               <Sparkles className="h-3.5 w-3.5 text-primary" />
-              AIML Summer Internship 2026 · Capstone Project 1
+              CSE Summer Training Project 2026 · Capstone Project 1
             </div>
             <h1 className="text-4xl font-bold tracking-tight sm:text-5xl md:text-6xl">
               Student Performance
