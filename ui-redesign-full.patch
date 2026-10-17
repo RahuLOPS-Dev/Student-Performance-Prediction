@@ -1,0 +1,337 @@
+diff --git a/download/ui-polish.patch b/download/ui-polish.patch
+new file mode 100644
+index 0000000..f30edf3
+--- /dev/null
++++ b/download/ui-polish.patch
+@@ -0,0 +1,177 @@
++diff --git a/frontend/src/app/globals.css b/frontend/src/app/globals.css
++index fec0de9..1da79ba 100755
++--- a/frontend/src/app/globals.css
+++++ b/frontend/src/app/globals.css
++@@ -189,6 +189,38 @@ html {
++   outline-offset: 2px;
++ }
++ 
+++/* Slider polish — better track contrast + visible thumb */
+++[data-slot="slider-track"] {
+++  height: 6px !important;
+++  background: hsl(var(--muted)) !important;
+++  border-radius: 9999px !important;
+++}
+++[data-slot="slider-range"] {
+++  height: 6px !important;
+++  background: hsl(var(--primary)) !important;
+++  border-radius: 9999px !important;
+++}
+++[data-slot="slider-thumb"] {
+++  height: 18px !important;
+++  width: 18px !important;
+++  border: 2px solid hsl(var(--background)) !important;
+++  box-shadow: 0 1px 3px hsl(var(--foreground) / 0.2), 0 0 0 1px hsl(var(--primary) / 0.3) !important;
+++  background: hsl(var(--primary)) !important;
+++  transition: box-shadow 150ms ease, transform 150ms ease !important;
+++}
+++[data-slot="slider-thumb"]:hover {
+++  transform: scale(1.15) !important;
+++  box-shadow: 0 2px 6px hsl(var(--foreground) / 0.25), 0 0 0 2px hsl(var(--primary) / 0.4) !important;
+++}
+++[data-slot="slider-thumb"]:focus-visible {
+++  box-shadow: 0 0 0 4px hsl(var(--primary) / 0.2), 0 1px 3px hsl(var(--foreground) / 0.2) !important;
+++}
+++
+++/* Section spacing — consistent vertical rhythm */
+++section[id] {
+++  scroll-margin-top: 5rem;
+++}
+++
++ /* Animated gradient orb (hero) */
++ @keyframes orb-drift {
++   0%, 100% { transform: translate(0, 0) scale(1); }
++diff --git a/frontend/src/app/page.tsx b/frontend/src/app/page.tsx
++index 0dbcf11..f555c66 100755
++--- a/frontend/src/app/page.tsx
+++++ b/frontend/src/app/page.tsx
++@@ -64,40 +64,42 @@ export default async function Home() {
++         <div className="pointer-events-none absolute inset-0 bg-gradient-to-br from-primary/5 via-transparent to-chart-4/5" />
++         <div className="hero-orb pointer-events-none absolute -top-24 right-0 h-72 w-72 rounded-full bg-primary/15 blur-3xl" />
++         <div className="hero-orb-2 pointer-events-none absolute -bottom-24 -left-24 h-80 w-80 rounded-full bg-chart-4/15 blur-3xl" />
++-        <div className="relative mx-auto max-w-6xl px-4 py-16 sm:py-20">
+++        <div className="relative mx-auto max-w-5xl px-4 py-24 sm:py-32">
++           <div className="mx-auto max-w-3xl text-center">
++-            <div className="mb-4 inline-flex items-center gap-2 rounded-full border bg-card px-3 py-1 text-xs font-medium text-muted-foreground shadow-sm">
+++            <div className="mb-6 inline-flex items-center gap-2 rounded-full border bg-card px-3.5 py-1.5 text-xs font-medium text-muted-foreground shadow-sm">
++               <Sparkles className="h-3.5 w-3.5 text-primary" />
++               CSE Summer Training Project 2026 · Capstone Project 1
++             </div>
++-            <h1 className="text-4xl font-bold tracking-tight sm:text-5xl md:text-6xl">
+++            <h1 className="text-4xl font-bold leading-[1.1] tracking-tight sm:text-5xl md:text-6xl">
++               Student Performance
++-              <span className="gradient-anim block bg-gradient-to-r from-primary via-chart-1 to-chart-4 bg-clip-text text-transparent">
++-                Prediction System
++-              </span>
+++              <br />
+++              Prediction System
+++              <span className="text-primary">.</span>
++             </h1>
++-            <p className="mx-auto mt-5 max-w-2xl text-base text-muted-foreground sm:text-lg">
+++            <p className="mx-auto mt-7 max-w-2xl text-base leading-relaxed text-muted-foreground sm:text-lg">
++               A machine-learning system that predicts a student&apos;s final exam score from
++               attendance, assignment scores, internal assessments, study habits, and behavioral
++               indicators — trained on <strong className="text-foreground">{stats.clean_rows.toLocaleString()} student records</strong>.
++             </p>
++-            <div className="mt-7 flex flex-wrap items-center justify-center gap-3">
+++            <div className="mt-9 flex flex-wrap items-center justify-center gap-3">
++               <a href="#predictor" className="inline-flex">
++-                <button className="inline-flex items-center gap-2 rounded-lg bg-primary px-5 py-2.5 text-sm font-semibold text-primary-foreground shadow-md transition hover:shadow-lg">
+++                <button className="inline-flex h-11 items-center gap-2 rounded-lg bg-primary px-6 text-sm font-semibold text-primary-foreground shadow-md transition hover:shadow-lg">
++                   <Sparkles className="h-4 w-4" /> Try the Live Predictor
++                 </button>
++               </a>
++               <a href="#methodology" className="inline-flex">
++-                <button className="inline-flex items-center gap-2 rounded-lg border bg-card px-5 py-2.5 text-sm font-semibold shadow-sm transition hover:bg-muted">
+++                <button className="inline-flex h-11 items-center gap-2 rounded-lg border bg-card px-6 text-sm font-semibold shadow-sm transition hover:bg-muted">
++                   <BookOpen className="h-4 w-4" /> View Methodology
++                 </button>
++               </a>
++-              <PrintButton className="inline-flex items-center gap-2 rounded-lg border border-primary/30 bg-primary/5 px-5 py-2.5 text-sm font-semibold text-primary shadow-sm transition hover:bg-primary/10" >
++-                <span className="inline-flex items-center gap-2">
++-                  <FileDown className="h-4 w-4" /> Print Faculty Report
++-                </span>
++-              </PrintButton>
++-              <GuidedTour />
+++              <div className="flex items-center gap-2">
+++                <PrintButton className="inline-flex h-11 items-center gap-2 rounded-lg border border-primary/30 bg-primary/5 px-5 text-sm font-semibold text-primary transition hover:bg-primary/10" >
+++                  <span className="inline-flex items-center gap-2">
+++                    <FileDown className="h-4 w-4" /> Report
+++                  </span>
+++                </PrintButton>
+++                <GuidedTour />
+++              </div>
++             </div>
++           </div>
++ 
++diff --git a/frontend/src/components/site-nav.tsx b/frontend/src/components/site-nav.tsx
++index bc9b584..f728ce0 100755
++--- a/frontend/src/components/site-nav.tsx
+++++ b/frontend/src/components/site-nav.tsx
++@@ -5,20 +5,16 @@ import { GraduationCap, Menu, X, Search } from "lucide-react";
++ import { Button } from "@/components/ui/button";
++ import { ThemeToggle } from "@/components/theme-toggle";
++ 
+++// Primary nav items (shown in the header). Secondary sections are accessible via
+++// ⌘K command palette, footer quick-links, keyboard shortcuts, and scroll.
++ const SECTIONS = [
++   { id: "overview", label: "Overview" },
++-  { id: "methodology", label: "Methodology" },
++-  { id: "dataset", label: "Dataset" },
++   { id: "predictor", label: "Predictor" },
++   { id: "compare", label: "Compare" },
++   { id: "models", label: "Models" },
++   { id: "diagnostics", label: "Diagnostics" },
++   { id: "insights", label: "EDA" },
++-  { id: "explainability", label: "PDP" },
++-  { id: "shap", label: "SHAP" },
++   { id: "results", label: "Results" },
++-  { id: "model-card", label: "Model Card" },
++-  { id: "glossary", label: "Glossary" },
++ ];
++ 
++ export default function SiteNav() {
++@@ -65,16 +61,16 @@ export default function SiteNav() {
++           <span className="flex h-8 w-8 items-center justify-center rounded-lg bg-primary text-primary-foreground">
++             <GraduationCap className="h-5 w-5" />
++           </span>
++-          <span className="hidden sm:inline">Student Performance Prediction</span>
+++          <span className="hidden sm:inline">SPP System</span>
++           <span className="sm:hidden">SPP</span>
++         </button>
++ 
++-        <nav className="hidden items-center gap-0.5 overflow-x-auto md:flex md:max-w-[60vw] lg:max-w-none">
+++        <nav className="hidden items-center gap-0.5 md:flex">
++           {SECTIONS.map((s) => (
++             <button
++               key={s.id}
++               onClick={() => scrollTo(s.id)}
++-              className={`whitespace-nowrap rounded-md px-2.5 py-1.5 text-xs font-medium transition-colors lg:px-3 lg:text-sm ${
+++              className={`whitespace-nowrap rounded-md px-3 py-1.5 text-sm font-medium transition-colors ${
++                 active === s.id
++                   ? "bg-primary/10 text-primary"
++                   : "text-muted-foreground hover:text-foreground"
++diff --git a/frontend/src/components/welcome-modal.tsx b/frontend/src/components/welcome-modal.tsx
++index 9ea0cad..7ccbb5c 100755
++--- a/frontend/src/components/welcome-modal.tsx
+++++ b/frontend/src/components/welcome-modal.tsx
++@@ -10,13 +10,13 @@ export function WelcomeModal() {
++   const [seen, setSeen] = usePersistentState<boolean>("spp:welcome-seen", false);
++   const [open, setOpen] = useState(false);
++ 
+++  // Only open via explicit user action (e.g. "Show welcome" button / reset onboarding),
+++  // NEVER auto-popup on load — that obscures the hero and is a usability anti-pattern.
++   useEffect(() => {
++-    // small delay so it doesn't jolt on load
++-    if (!seen) {
++-      const t = setTimeout(() => setOpen(true), 800);
++-      return () => clearTimeout(t);
++-    }
++-  }, [seen]);
+++    const onOpen = () => setOpen(true);
+++    window.addEventListener("spp:show-welcome", onOpen);
+++    return () => window.removeEventListener("spp:show-welcome", onOpen);
+++  }, []);
++ 
++   const handleTour = () => {
++     setOpen(false);
+diff --git a/frontend/src/app/globals.css b/frontend/src/app/globals.css
+index 1da79ba..98a858a 100755
+--- a/frontend/src/app/globals.css
++++ b/frontend/src/app/globals.css
+@@ -189,31 +189,36 @@ html {
+   outline-offset: 2px;
+ }
+ 
+-/* Slider polish — better track contrast + visible thumb */
++/* Slider polish — better track contrast + visible thumb (easy to grab) */
+ [data-slot="slider-track"] {
+-  height: 6px !important;
++  height: 8px !important;
+   background: hsl(var(--muted)) !important;
+   border-radius: 9999px !important;
+ }
+ [data-slot="slider-range"] {
+-  height: 6px !important;
++  height: 8px !important;
+   background: hsl(var(--primary)) !important;
+   border-radius: 9999px !important;
+ }
+ [data-slot="slider-thumb"] {
+-  height: 18px !important;
+-  width: 18px !important;
+-  border: 2px solid hsl(var(--background)) !important;
+-  box-shadow: 0 1px 3px hsl(var(--foreground) / 0.2), 0 0 0 1px hsl(var(--primary) / 0.3) !important;
++  height: 22px !important;
++  width: 22px !important;
++  border: 3px solid hsl(var(--background)) !important;
++  box-shadow: 0 2px 6px hsl(var(--foreground) / 0.25), 0 0 0 1px hsl(var(--primary) / 0.4) !important;
+   background: hsl(var(--primary)) !important;
+   transition: box-shadow 150ms ease, transform 150ms ease !important;
++  cursor: grab !important;
+ }
+ [data-slot="slider-thumb"]:hover {
+-  transform: scale(1.15) !important;
+-  box-shadow: 0 2px 6px hsl(var(--foreground) / 0.25), 0 0 0 2px hsl(var(--primary) / 0.4) !important;
++  transform: scale(1.2) !important;
++  box-shadow: 0 3px 8px hsl(var(--foreground) / 0.3), 0 0 0 3px hsl(var(--primary) / 0.25) !important;
++}
++[data-slot="slider-thumb"]:active {
++  transform: scale(1.1) !important;
++  cursor: grabbing !important;
+ }
+ [data-slot="slider-thumb"]:focus-visible {
+-  box-shadow: 0 0 0 4px hsl(var(--primary) / 0.2), 0 1px 3px hsl(var(--foreground) / 0.2) !important;
++  box-shadow: 0 0 0 5px hsl(var(--primary) / 0.2), 0 2px 6px hsl(var(--foreground) / 0.25) !important;
+ }
+ 
+ /* Section spacing — consistent vertical rhythm */
+diff --git a/frontend/src/components/sections/predictor.tsx b/frontend/src/components/sections/predictor.tsx
+index d2ae82f..4cae414 100755
+--- a/frontend/src/components/sections/predictor.tsx
++++ b/frontend/src/components/sections/predictor.tsx
+@@ -310,7 +310,7 @@ export default function Predictor() {
+ 
+       <div className="grid gap-6 lg:grid-cols-[1fr_1.05fr]">
+         {/* ---------- INPUT FORM ---------- */}
+-        <Card className="border-border/60 shadow-sm">
++        <Card className="border-border/60 shadow-lg shadow-primary/5">
+           <CardHeader className="border-b bg-muted/30">
+             <div className="flex items-center justify-between gap-2">
+               <div>
+@@ -329,23 +329,23 @@ export default function Predictor() {
+           </CardHeader>
+           <CardContent className="pt-6">
+             <div className="space-y-6">
+-              {/* Numeric sliders */}
++              {/* Numeric sliders — matching the mockup: label row with icon + green pill badge, slider below */}
+               <div>
+-                <h4 className="mb-3 text-xs font-semibold uppercase tracking-wider text-muted-foreground">
++                <h4 className="mb-4 text-xs font-semibold uppercase tracking-wider text-muted-foreground">
+                   Academic &amp; Behavioral Indicators
+                 </h4>
+-                <div className="grid gap-5 sm:grid-cols-2">
++                <div className="grid gap-x-8 gap-y-5 sm:grid-cols-2">
+                   {NUMERIC_FIELDS.map((field) => {
+                     const Icon = field.icon;
+                     const value = input[field.key] as number;
+                     return (
+-                      <div key={field.key} className="space-y-2">
++                      <div key={field.key} className="space-y-2.5">
+                         <div className="flex items-center justify-between">
+-                          <Label className="flex items-center gap-1.5 text-sm font-medium">
+-                            <Icon className="h-3.5 w-3.5 text-muted-foreground" />
++                          <Label className="flex items-center gap-2 text-sm font-medium text-foreground/90">
++                            <Icon className="h-4 w-4 text-muted-foreground" />
+                             {field.label}
+                           </Label>
+-                          <span className="rounded-md bg-primary/10 px-2 py-0.5 text-sm font-semibold tabular-nums text-primary">
++                          <span className="inline-flex items-center rounded-full bg-emerald-50 px-2.5 py-0.5 text-sm font-semibold tabular-nums text-emerald-700 dark:bg-emerald-950/60 dark:text-emerald-300">
+                             {value.toFixed(field.step < 1 ? 1 : 0)}
+                             {field.unit && <span className="ml-0.5 text-xs opacity-70">{field.unit}</span>}
+                           </span>
+@@ -356,7 +356,7 @@ export default function Predictor() {
+                           max={field.max}
+                           step={field.step}
+                           onValueChange={(v) => handleNumeric(field.key, v[0])}
+-                          className="[&_[role=slider]]:h-4 [&_[role=slider]]:w-4"
++                          className="cursor-pointer"
+                         />
+                       </div>
+                     );
+@@ -366,25 +366,25 @@ export default function Predictor() {
+ 
+               <Separator />
+ 
+-              {/* Categorical selects */}
++              {/* Categorical selects — matching the mockup: rounded, icon+label, touch-friendly */}
+               <div>
+-                <h4 className="mb-3 text-xs font-semibold uppercase tracking-wider text-muted-foreground">
++                <h4 className="mb-4 text-xs font-semibold uppercase tracking-wider text-muted-foreground">
+                   Demographic &amp; Contextual Factors
+                 </h4>
+-                <div className="grid gap-4 sm:grid-cols-2">
++                <div className="grid gap-x-8 gap-y-4 sm:grid-cols-2">
+                   {CATEGORICAL_FIELDS.map((field) => {
+                     const Icon = field.icon;
+                     return (
+-                      <div key={field.key} className="space-y-1.5">
+-                        <Label className="flex items-center gap-1.5 text-sm font-medium">
+-                          <Icon className="h-3.5 w-3.5 text-muted-foreground" />
++                      <div key={field.key} className="space-y-2">
++                        <Label className="flex items-center gap-2 text-sm font-medium text-foreground/90">
++                          <Icon className="h-4 w-4 text-muted-foreground" />
+                           {field.label}
+                         </Label>
+                         <Select
+                           value={input[field.key] as string}
+                           onValueChange={(v) => handleCategorical(field.key, v)}
+                         >
+-                          <SelectTrigger className="w-full">
++                          <SelectTrigger className="h-11 rounded-lg border-border bg-background text-sm font-medium">
+                             <SelectValue />
+                           </SelectTrigger>
+                           <SelectContent>
+@@ -403,7 +403,7 @@ export default function Predictor() {
+                 onClick={handlePredict}
+                 disabled={!modelReady || loading}
+                 size="lg"
+-                className="w-full text-base font-semibold shadow-md transition-all hover:shadow-lg disabled:opacity-50"
++                className="h-12 w-full rounded-lg text-base font-semibold shadow-md transition-all hover:shadow-lg disabled:opacity-50"
+               >
+                 {loading ? (
+                   <>
+diff --git a/upload/pasted_image_1792218054453.png b/upload/pasted_image_1792218054453.png
+new file mode 100755
+index 0000000..31b8608
+Binary files /dev/null and b/upload/pasted_image_1792218054453.png differ
+diff --git a/upload/pasted_image_1792218074963.png b/upload/pasted_image_1792218074963.png
+new file mode 100755
+index 0000000..31b8608
+Binary files /dev/null and b/upload/pasted_image_1792218074963.png differ
