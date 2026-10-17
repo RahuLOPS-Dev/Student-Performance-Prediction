@@ -310,7 +310,7 @@ export default function Predictor() {
 
       <div className="grid gap-6 lg:grid-cols-[1fr_1.05fr]">
         {/* ---------- INPUT FORM ---------- */}
-        <Card className="border-border/60 shadow-sm">
+        <Card className="border-border/60 shadow-lg shadow-primary/5">
           <CardHeader className="border-b bg-muted/30">
             <div className="flex items-center justify-between gap-2">
               <div>
@@ -329,23 +329,23 @@ export default function Predictor() {
           </CardHeader>
           <CardContent className="pt-6">
             <div className="space-y-6">
-              {/* Numeric sliders */}
+              {/* Numeric sliders — matching the mockup: label row with icon + green pill badge, slider below */}
               <div>
-                <h4 className="mb-3 text-xs font-semibold uppercase tracking-wider text-muted-foreground">
+                <h4 className="mb-4 text-xs font-semibold uppercase tracking-wider text-muted-foreground">
                   Academic &amp; Behavioral Indicators
                 </h4>
-                <div className="grid gap-5 sm:grid-cols-2">
+                <div className="grid gap-x-8 gap-y-5 sm:grid-cols-2">
                   {NUMERIC_FIELDS.map((field) => {
                     const Icon = field.icon;
                     const value = input[field.key] as number;
                     return (
-                      <div key={field.key} className="space-y-2">
+                      <div key={field.key} className="space-y-2.5">
                         <div className="flex items-center justify-between">
-                          <Label className="flex items-center gap-1.5 text-sm font-medium">
-                            <Icon className="h-3.5 w-3.5 text-muted-foreground" />
+                          <Label className="flex items-center gap-2 text-sm font-medium text-foreground/90">
+                            <Icon className="h-4 w-4 text-muted-foreground" />
                             {field.label}
                           </Label>
-                          <span className="rounded-md bg-primary/10 px-2 py-0.5 text-sm font-semibold tabular-nums text-primary">
+                          <span className="inline-flex items-center rounded-full bg-emerald-50 px-2.5 py-0.5 text-sm font-semibold tabular-nums text-emerald-700 dark:bg-emerald-950/60 dark:text-emerald-300">
                             {value.toFixed(field.step < 1 ? 1 : 0)}
                             {field.unit && <span className="ml-0.5 text-xs opacity-70">{field.unit}</span>}
                           </span>
@@ -356,7 +356,7 @@ export default function Predictor() {
                           max={field.max}
                           step={field.step}
                           onValueChange={(v) => handleNumeric(field.key, v[0])}
-                          className="[&_[role=slider]]:h-4 [&_[role=slider]]:w-4"
+                          className="cursor-pointer"
                         />
                       </div>
                     );
@@ -366,25 +366,25 @@ export default function Predictor() {
 
               <Separator />
 
-              {/* Categorical selects */}
+              {/* Categorical selects — matching the mockup: rounded, icon+label, touch-friendly */}
               <div>
-                <h4 className="mb-3 text-xs font-semibold uppercase tracking-wider text-muted-foreground">
+                <h4 className="mb-4 text-xs font-semibold uppercase tracking-wider text-muted-foreground">
                   Demographic &amp; Contextual Factors
                 </h4>
-                <div className="grid gap-4 sm:grid-cols-2">
+                <div className="grid gap-x-8 gap-y-4 sm:grid-cols-2">
                   {CATEGORICAL_FIELDS.map((field) => {
                     const Icon = field.icon;
                     return (
-                      <div key={field.key} className="space-y-1.5">
-                        <Label className="flex items-center gap-1.5 text-sm font-medium">
-                          <Icon className="h-3.5 w-3.5 text-muted-foreground" />
+                      <div key={field.key} className="space-y-2">
+                        <Label className="flex items-center gap-2 text-sm font-medium text-foreground/90">
+                          <Icon className="h-4 w-4 text-muted-foreground" />
                           {field.label}
                         </Label>
                         <Select
                           value={input[field.key] as string}
                           onValueChange={(v) => handleCategorical(field.key, v)}
                         >
-                          <SelectTrigger className="w-full">
+                          <SelectTrigger className="h-11 rounded-lg border-border bg-background text-sm font-medium">
                             <SelectValue />
                           </SelectTrigger>
                           <SelectContent>
@@ -403,7 +403,7 @@ export default function Predictor() {
                 onClick={handlePredict}
                 disabled={!modelReady || loading}
                 size="lg"
-                className="w-full text-base font-semibold shadow-md transition-all hover:shadow-lg disabled:opacity-50"
+                className="h-12 w-full rounded-lg text-base font-semibold shadow-md transition-all hover:shadow-lg disabled:opacity-50"
               >
                 {loading ? (
                   <>

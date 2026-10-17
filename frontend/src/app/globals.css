@@ -189,31 +189,29 @@ html {
   outline-offset: 2px;
 }
 
-/* Slider polish — better track contrast + visible thumb */
+/* Slider polish — styling is baked into the Slider component via var(--primary)/var(--muted).
+   These are fallbacks ensuring the thumb is always visible. */
 [data-slot="slider-track"] {
-  height: 6px !important;
-  background: hsl(var(--muted)) !important;
-  border-radius: 9999px !important;
+  background-color: var(--muted, hsl(0 0% 90%)) !important;
+  height: 8px !important;
 }
 [data-slot="slider-range"] {
-  height: 6px !important;
-  background: hsl(var(--primary)) !important;
-  border-radius: 9999px !important;
+  background-color: var(--primary, hsl(160 84% 39%)) !important;
+  height: 8px !important;
 }
 [data-slot="slider-thumb"] {
-  height: 18px !important;
-  width: 18px !important;
-  border: 2px solid hsl(var(--background)) !important;
-  box-shadow: 0 1px 3px hsl(var(--foreground) / 0.2), 0 0 0 1px hsl(var(--primary) / 0.3) !important;
-  background: hsl(var(--primary)) !important;
-  transition: box-shadow 150ms ease, transform 150ms ease !important;
+  background-color: var(--primary, hsl(160 84% 39%)) !important;
+  height: 20px !important;
+  width: 20px !important;
+  border: 3px solid var(--background, white) !important;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.2) !important;
 }
 [data-slot="slider-thumb"]:hover {
   transform: scale(1.15) !important;
-  box-shadow: 0 2px 6px hsl(var(--foreground) / 0.25), 0 0 0 2px hsl(var(--primary) / 0.4) !important;
 }
-[data-slot="slider-thumb"]:focus-visible {
-  box-shadow: 0 0 0 4px hsl(var(--primary) / 0.2), 0 1px 3px hsl(var(--foreground) / 0.2) !important;
+[data-slot="slider-thumb"]:active {
+  cursor: grabbing !important;
+  transform: scale(1.1) !important;
 }
 
 /* Section spacing — consistent vertical rhythm */
