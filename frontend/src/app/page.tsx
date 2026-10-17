@@ -64,40 +64,42 @@ export default async function Home() {
         <div className="pointer-events-none absolute inset-0 bg-gradient-to-br from-primary/5 via-transparent to-chart-4/5" />
         <div className="hero-orb pointer-events-none absolute -top-24 right-0 h-72 w-72 rounded-full bg-primary/15 blur-3xl" />
         <div className="hero-orb-2 pointer-events-none absolute -bottom-24 -left-24 h-80 w-80 rounded-full bg-chart-4/15 blur-3xl" />
-        <div className="relative mx-auto max-w-6xl px-4 py-16 sm:py-20">
+        <div className="relative mx-auto max-w-5xl px-4 py-24 sm:py-32">
           <div className="mx-auto max-w-3xl text-center">
-            <div className="mb-4 inline-flex items-center gap-2 rounded-full border bg-card px-3 py-1 text-xs font-medium text-muted-foreground shadow-sm">
+            <div className="mb-6 inline-flex items-center gap-2 rounded-full border bg-card px-3.5 py-1.5 text-xs font-medium text-muted-foreground shadow-sm">
               <Sparkles className="h-3.5 w-3.5 text-primary" />
               CSE Summer Training Project 2026 · Capstone Project 1
             </div>
-            <h1 className="text-4xl font-bold tracking-tight sm:text-5xl md:text-6xl">
+            <h1 className="text-4xl font-bold leading-[1.1] tracking-tight sm:text-5xl md:text-6xl">
               Student Performance
-              <span className="gradient-anim block bg-gradient-to-r from-primary via-chart-1 to-chart-4 bg-clip-text text-transparent">
-                Prediction System
-              </span>
+              <br />
+              Prediction System
+              <span className="text-primary">.</span>
             </h1>
-            <p className="mx-auto mt-5 max-w-2xl text-base text-muted-foreground sm:text-lg">
+            <p className="mx-auto mt-7 max-w-2xl text-base leading-relaxed text-muted-foreground sm:text-lg">
               A machine-learning system that predicts a student&apos;s final exam score from
               attendance, assignment scores, internal assessments, study habits, and behavioral
               indicators — trained on <strong className="text-foreground">{stats.clean_rows.toLocaleString()} student records</strong>.
             </p>
-            <div className="mt-7 flex flex-wrap items-center justify-center gap-3">
+            <div className="mt-9 flex flex-wrap items-center justify-center gap-3">
               <a href="#predictor" className="inline-flex">
-                <button className="inline-flex items-center gap-2 rounded-lg bg-primary px-5 py-2.5 text-sm font-semibold text-primary-foreground shadow-md transition hover:shadow-lg">
+                <button className="inline-flex h-11 items-center gap-2 rounded-lg bg-primary px-6 text-sm font-semibold text-primary-foreground shadow-md transition hover:shadow-lg">
                   <Sparkles className="h-4 w-4" /> Try the Live Predictor
                 </button>
               </a>
               <a href="#methodology" className="inline-flex">
-                <button className="inline-flex items-center gap-2 rounded-lg border bg-card px-5 py-2.5 text-sm font-semibold shadow-sm transition hover:bg-muted">
+                <button className="inline-flex h-11 items-center gap-2 rounded-lg border bg-card px-6 text-sm font-semibold shadow-sm transition hover:bg-muted">
                   <BookOpen className="h-4 w-4" /> View Methodology
                 </button>
               </a>
-              <PrintButton className="inline-flex items-center gap-2 rounded-lg border border-primary/30 bg-primary/5 px-5 py-2.5 text-sm font-semibold text-primary shadow-sm transition hover:bg-primary/10" >
-                <span className="inline-flex items-center gap-2">
-                  <FileDown className="h-4 w-4" /> Print Faculty Report
-                </span>
-              </PrintButton>
-              <GuidedTour />
+              <div className="flex items-center gap-2">
+                <PrintButton className="inline-flex h-11 items-center gap-2 rounded-lg border border-primary/30 bg-primary/5 px-5 text-sm font-semibold text-primary transition hover:bg-primary/10" >
+                  <span className="inline-flex items-center gap-2">
+                    <FileDown className="h-4 w-4" /> Report
+                  </span>
+                </PrintButton>
+                <GuidedTour />
+              </div>
             </div>
           </div>
 

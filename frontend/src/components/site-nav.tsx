@@ -5,20 +5,16 @@ import { GraduationCap, Menu, X, Search } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { ThemeToggle } from "@/components/theme-toggle";
 
+// Primary nav items (shown in the header). Secondary sections are accessible via
+// ⌘K command palette, footer quick-links, keyboard shortcuts, and scroll.
 const SECTIONS = [
   { id: "overview", label: "Overview" },
-  { id: "methodology", label: "Methodology" },
-  { id: "dataset", label: "Dataset" },
   { id: "predictor", label: "Predictor" },
   { id: "compare", label: "Compare" },
   { id: "models", label: "Models" },
   { id: "diagnostics", label: "Diagnostics" },
   { id: "insights", label: "EDA" },
-  { id: "explainability", label: "PDP" },
-  { id: "shap", label: "SHAP" },
   { id: "results", label: "Results" },
-  { id: "model-card", label: "Model Card" },
-  { id: "glossary", label: "Glossary" },
 ];
 
 export default function SiteNav() {
@@ -65,16 +61,16 @@ export default function SiteNav() {
           <span className="flex h-8 w-8 items-center justify-center rounded-lg bg-primary text-primary-foreground">
             <GraduationCap className="h-5 w-5" />
           </span>
-          <span className="hidden sm:inline">Student Performance Prediction</span>
+          <span className="hidden sm:inline">SPP System</span>
           <span className="sm:hidden">SPP</span>
         </button>
 
-        <nav className="hidden items-center gap-0.5 overflow-x-auto md:flex md:max-w-[60vw] lg:max-w-none">
+        <nav className="hidden items-center gap-0.5 md:flex">
           {SECTIONS.map((s) => (
             <button
               key={s.id}
               onClick={() => scrollTo(s.id)}
-              className={`whitespace-nowrap rounded-md px-2.5 py-1.5 text-xs font-medium transition-colors lg:px-3 lg:text-sm ${
+              className={`whitespace-nowrap rounded-md px-3 py-1.5 text-sm font-medium transition-colors ${
                 active === s.id
                   ? "bg-primary/10 text-primary"
                   : "text-muted-foreground hover:text-foreground"

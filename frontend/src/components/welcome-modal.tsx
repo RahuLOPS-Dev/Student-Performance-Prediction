@@ -10,13 +10,13 @@ export function WelcomeModal() {
   const [seen, setSeen] = usePersistentState<boolean>("spp:welcome-seen", false);
   const [open, setOpen] = useState(false);
 
+  // Only open via explicit user action (e.g. "Show welcome" button / reset onboarding),
+  // NEVER auto-popup on load — that obscures the hero and is a usability anti-pattern.
   useEffect(() => {
-    // small delay so it doesn't jolt on load
-    if (!seen) {
-      const t = setTimeout(() => setOpen(true), 800);
-      return () => clearTimeout(t);
-    }
-  }, [seen]);
+    const onOpen = () => setOpen(true);
+    window.addEventListener("spp:show-welcome", onOpen);
+    return () => window.removeEventListener("spp:show-welcome", onOpen);
+  }, []);
 
   const handleTour = () => {
     setOpen(false);

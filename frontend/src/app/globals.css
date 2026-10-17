@@ -189,6 +189,38 @@ html {
   outline-offset: 2px;
 }
 
+/* Slider polish — better track contrast + visible thumb */
+[data-slot="slider-track"] {
+  height: 6px !important;
+  background: hsl(var(--muted)) !important;
+  border-radius: 9999px !important;
+}
+[data-slot="slider-range"] {
+  height: 6px !important;
+  background: hsl(var(--primary)) !important;
+  border-radius: 9999px !important;
+}
+[data-slot="slider-thumb"] {
+  height: 18px !important;
+  width: 18px !important;
+  border: 2px solid hsl(var(--background)) !important;
+  box-shadow: 0 1px 3px hsl(var(--foreground) / 0.2), 0 0 0 1px hsl(var(--primary) / 0.3) !important;
+  background: hsl(var(--primary)) !important;
+  transition: box-shadow 150ms ease, transform 150ms ease !important;
+}
+[data-slot="slider-thumb"]:hover {
+  transform: scale(1.15) !important;
+  box-shadow: 0 2px 6px hsl(var(--foreground) / 0.25), 0 0 0 2px hsl(var(--primary) / 0.4) !important;
+}
+[data-slot="slider-thumb"]:focus-visible {
+  box-shadow: 0 0 0 4px hsl(var(--primary) / 0.2), 0 1px 3px hsl(var(--foreground) / 0.2) !important;
+}
+
+/* Section spacing — consistent vertical rhythm */
+section[id] {
+  scroll-margin-top: 5rem;
+}
+
 /* Animated gradient orb (hero) */
 @keyframes orb-drift {
   0%, 100% { transform: translate(0, 0) scale(1); }
