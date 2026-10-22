@@ -1,20 +1,15 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { GraduationCap, Menu, X, Search } from "lucide-react";
+import { GraduationCap, Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { ThemeToggle } from "@/components/theme-toggle";
 
-// Primary nav items (shown in the header). Secondary sections are accessible via
-// ⌘K command palette, footer quick-links, keyboard shortcuts, and scroll.
 const SECTIONS = [
-  { id: "overview", label: "Overview" },
+  { id: "insights", label: "Insights" },
   { id: "predictor", label: "Predictor" },
-  { id: "compare", label: "Compare" },
-  { id: "models", label: "Models" },
-  { id: "diagnostics", label: "Diagnostics" },
-  { id: "insights", label: "EDA" },
-  { id: "results", label: "Results" },
+  { id: "reliability", label: "Reliability" },
+  { id: "impact", label: "Impact" },
 ];
 
 export default function SiteNav() {
@@ -82,18 +77,6 @@ export default function SiteNav() {
         </nav>
 
         <div className="flex items-center gap-2">
-          <button
-            onClick={() => {
-              // Simulate Cmd+K by dispatching the keydown
-              window.dispatchEvent(new KeyboardEvent("keydown", { key: "k", metaKey: true, bubbles: true }));
-            }}
-            className="inline-flex items-center gap-1.5 rounded-md border bg-muted/40 px-2.5 py-1.5 text-xs font-medium text-muted-foreground transition hover:bg-muted hover:text-foreground"
-            aria-label="Open command palette"
-            title="Search sections (⌘K)"
-          >
-            <Search className="h-4 w-4 shrink-0" />
-            <kbd className="rounded border bg-background px-1 text-[9px] font-semibold">⌘K</kbd>
-          </button>
           <ThemeToggle />
           <Button size="sm" onClick={() => scrollTo("predictor")} className="hidden sm:inline-flex">
             Try Predictor

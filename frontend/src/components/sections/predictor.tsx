@@ -294,11 +294,15 @@ export default function Predictor() {
               <button
                 key={preset.id}
                 onClick={() => applyPreset(preset)}
-                className={`group rounded-xl border p-3 text-left transition-all hover:shadow-md ${isActive ? ps.active : ps.idle}`}
+                className={`group rounded-xl border-2 p-3 text-left transition-all hover:shadow-lg hover:-translate-y-0.5 active:translate-y-0 ${isActive ? ps.active : ps.idle}`}
               >
                 <div className="flex items-center justify-between">
-                  <Icon className={`h-5 w-5 ${isActive ? "" : "text-muted-foreground group-hover:text-foreground"}`} />
-                  {isActive && <span className="text-[10px] font-bold uppercase tracking-wide">Active</span>}
+                  <Icon className={`h-5 w-5 transition-transform group-hover:scale-110 ${isActive ? "" : "text-muted-foreground group-hover:text-foreground"}`} />
+                  {isActive ? (
+                    <span className="rounded-full bg-background/80 px-2 py-0.5 text-[9px] font-bold uppercase tracking-wide">● Active</span>
+                  ) : (
+                    <span className="opacity-0 transition-opacity group-hover:opacity-100 text-[9px] font-semibold uppercase tracking-wide text-muted-foreground">Click →</span>
+                  )}
                 </div>
                 <div className="mt-1.5 text-sm font-semibold leading-tight">{preset.label}</div>
                 <div className="mt-0.5 text-[10px] leading-tight opacity-80">{preset.description}</div>
@@ -432,7 +436,7 @@ export default function Predictor() {
               Prediction Result
             </CardTitle>
             <CardDescription>
-              Powered by Gradient Boosting Regressor · 300 estimators
+            Instant prediction — no waiting, no server needed
             </CardDescription>
           </CardHeader>
           <CardContent className="relative pt-6">
@@ -480,42 +484,18 @@ export default function Predictor() {
               <div>
                 <h4 className="mb-1 flex items-center gap-1.5 text-xs font-semibold uppercase tracking-wider text-muted-foreground">
                   <Brain className="h-3.5 w-3.5" />
-                  Prediction Breakdown
+                  What&apos;s Driving This Score
                 </h4>
                 <p className="mb-3 text-[11px] text-muted-foreground">
-                  Marginal contribution of each factor vs. the dataset-average student
-                  (baseline score <span className="font-semibold tabular-nums">{breakdown.baselinePrediction}</span> → predicted <span className={`font-semibold tabular-nums ${style.color}`}>{breakdown.userPrediction}</span>, Δ <span className="font-semibold tabular-nums">{breakdown.totalDelta >= 0 ? "+" : ""}{breakdown.totalDelta}</span>)
+                  How each factor pushes the score up or down compared to an average student
                 </p>
                 <Waterfall breakdown={breakdown} />
               </div>
 
               <Separator />
 
-              {/* Engineered features */}
-              <div>
-                <h4 className="mb-3 text-xs font-semibold uppercase tracking-wider text-muted-foreground">
-                  Engineered Features (computed)
-                </h4>
-                <div className="grid grid-cols-2 gap-3">
-                  <div className="rounded-lg border bg-card p-3">
-                    <div className="text-xs text-muted-foreground">Avg Internal Score</div>
-                    <div className="mt-0.5 text-xl font-semibold tabular-nums">
-                      {result.engineered_features.avg_internal_score}
-                    </div>
-                  </div>
-                  <div className="rounded-lg border bg-card p-3">
-                    <div className="text-xs text-muted-foreground">Engagement Index</div>
-                    <div className="mt-0.5 text-xl font-semibold tabular-nums">
-                      {result.engineered_features.engagement_index}
-                    </div>
-                    <div className="text-[10px] text-muted-foreground">attendance × study hrs</div>
-                  </div>
-                </div>
-              </div>
-
               <div className="rounded-lg bg-muted/40 p-3 text-xs text-muted-foreground">
-                <span className="font-semibold">Baseline student:</span>{" "}
-                {categoricalModes.gender}, {categoricalModes.parental_support} support, {categoricalModes.family_income_level} income · attendance 78% · 12 study hrs · GPA 6.8
+                Predictions are instant and run entirely in your browser. No data leaves your device.
               </div>
             </div>
             )}

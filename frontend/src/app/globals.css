@@ -45,71 +45,75 @@
 
 :root {
   --radius: 0.75rem;
-  --background: oklch(0.99 0.004 160);
-  --foreground: oklch(0.18 0.02 165);
+  --background: oklch(0.99 0.004 240);
+  --foreground: oklch(0.18 0.02 250);
   --card: oklch(1 0 0);
-  --card-foreground: oklch(0.18 0.02 165);
+  --card-foreground: oklch(0.18 0.02 250);
   --popover: oklch(1 0 0);
-  --popover-foreground: oklch(0.18 0.02 165);
-  --primary: oklch(0.45 0.11 162);
-  --primary-foreground: oklch(0.99 0.005 160);
-  --secondary: oklch(0.96 0.012 165);
-  --secondary-foreground: oklch(0.28 0.03 165);
-  --muted: oklch(0.96 0.008 165);
-  --muted-foreground: oklch(0.5 0.02 165);
-  --accent: oklch(0.93 0.04 165);
-  --accent-foreground: oklch(0.28 0.05 165);
+  --popover-foreground: oklch(0.18 0.02 250);
+  /* Primary = Indigo (mixed palette: indigo primary + violet accent) */
+  --primary: oklch(0.50 0.20 265);
+  --primary-foreground: oklch(0.99 0.005 240);
+  --secondary: oklch(0.96 0.01 250);
+  --secondary-foreground: oklch(0.28 0.03 250);
+  --muted: oklch(0.96 0.008 250);
+  --muted-foreground: oklch(0.5 0.02 250);
+  /* Accent = Violet (warm complement to indigo) */
+  --accent: oklch(0.92 0.04 300);
+  --accent-foreground: oklch(0.28 0.05 300);
   --destructive: oklch(0.577 0.245 27.325);
-  --border: oklch(0.9 0.012 165);
-  --input: oklch(0.9 0.012 165);
-  --ring: oklch(0.45 0.11 162);
-  --chart-1: oklch(0.55 0.13 162);
-  --chart-2: oklch(0.62 0.14 50);
-  --chart-3: oklch(0.6 0.11 230);
-  --chart-4: oklch(0.75 0.16 70);
-  --chart-5: oklch(0.58 0.2 20);
-  --sidebar: oklch(0.985 0.005 160);
-  --sidebar-foreground: oklch(0.18 0.02 165);
-  --sidebar-primary: oklch(0.45 0.11 162);
-  --sidebar-primary-foreground: oklch(0.99 0.005 160);
-  --sidebar-accent: oklch(0.93 0.04 165);
-  --sidebar-accent-foreground: oklch(0.28 0.05 165);
-  --sidebar-border: oklch(0.9 0.012 165);
-  --sidebar-ring: oklch(0.45 0.11 162);
+  --border: oklch(0.9 0.01 250);
+  --input: oklch(0.9 0.01 250);
+  --ring: oklch(0.50 0.20 265);
+  /* Mixed chart palette: indigo, violet, teal, amber, rose */
+  --chart-1: oklch(0.50 0.20 265);  /* indigo */
+  --chart-2: oklch(0.60 0.22 300);  /* violet */
+  --chart-3: oklch(0.60 0.13 180);  /* teal */
+  --chart-4: oklch(0.75 0.16 70);  /* amber */
+  --chart-5: oklch(0.65 0.22 15);   /* rose */
+  --sidebar: oklch(0.985 0.005 240);
+  --sidebar-foreground: oklch(0.18 0.02 250);
+  --sidebar-primary: oklch(0.50 0.20 265);
+  --sidebar-primary-foreground: oklch(0.99 0.005 240);
+  --sidebar-accent: oklch(0.92 0.04 300);
+  --sidebar-accent-foreground: oklch(0.28 0.05 300);
+  --sidebar-border: oklch(0.9 0.01 250);
+  --sidebar-ring: oklch(0.50 0.20 265);
+  --glow: oklch(0.50 0.20 265 / 0.25);
 }
 
 .dark {
-  --background: oklch(0.16 0.012 165);
-  --foreground: oklch(0.96 0.008 165);
-  --card: oklch(0.21 0.014 165);
-  --card-foreground: oklch(0.96 0.008 165);
-  --popover: oklch(0.21 0.014 165);
-  --popover-foreground: oklch(0.96 0.008 165);
-  --primary: oklch(0.7 0.13 162);
-  --primary-foreground: oklch(0.14 0.02 165);
-  --secondary: oklch(0.27 0.018 165);
-  --secondary-foreground: oklch(0.96 0.008 165);
-  --muted: oklch(0.25 0.015 165);
-  --muted-foreground: oklch(0.72 0.02 165);
-  --accent: oklch(0.3 0.04 165);
-  --accent-foreground: oklch(0.96 0.008 165);
+  --background: oklch(0.16 0.012 250);
+  --foreground: oklch(0.96 0.008 250);
+  --card: oklch(0.21 0.014 250);
+  --card-foreground: oklch(0.96 0.008 250);
+  --popover: oklch(0.21 0.014 250);
+  --popover-foreground: oklch(0.96 0.008 250);
+  --primary: oklch(0.68 0.18 265);
+  --primary-foreground: oklch(0.14 0.02 250);
+  --secondary: oklch(0.27 0.018 250);
+  --secondary-foreground: oklch(0.96 0.008 250);
+  --muted: oklch(0.25 0.015 250);
+  --muted-foreground: oklch(0.72 0.02 250);
+  --accent: oklch(0.35 0.06 300);
+  --accent-foreground: oklch(0.96 0.008 250);
   --destructive: oklch(0.704 0.191 22.216);
   --border: oklch(1 0 0 / 12%);
   --input: oklch(1 0 0 / 15%);
-  --ring: oklch(0.7 0.13 162);
-  --chart-1: oklch(0.7 0.15 162);
-  --chart-2: oklch(0.75 0.16 50);
-  --chart-3: oklch(0.7 0.13 230);
-  --chart-4: oklch(0.8 0.17 70);
-  --chart-5: oklch(0.68 0.21 20);
-  --sidebar: oklch(0.21 0.014 165);
-  --sidebar-foreground: oklch(0.96 0.008 165);
-  --sidebar-primary: oklch(0.7 0.13 162);
-  --sidebar-primary-foreground: oklch(0.14 0.02 165);
-  --sidebar-accent: oklch(0.27 0.018 165);
-  --sidebar-accent-foreground: oklch(0.96 0.008 165);
+  --ring: oklch(0.68 0.18 265);
+  --chart-1: oklch(0.68 0.18 265);
+  --chart-2: oklch(0.72 0.20 300);
+  --chart-3: oklch(0.70 0.13 180);
+  --chart-4: oklch(0.80 0.17 70);
+  --chart-5: oklch(0.68 0.21 15);
+  --sidebar: oklch(0.21 0.014 250);
+  --sidebar-foreground: oklch(0.96 0.008 250);
+  --sidebar-primary: oklch(0.68 0.18 265);
+  --sidebar-primary-foreground: oklch(0.14 0.02 250);
+  --sidebar-accent: oklch(0.27 0.018 250);
+  --sidebar-accent-foreground: oklch(0.96 0.008 250);
   --sidebar-border: oklch(1 0 0 / 12%);
-  --sidebar-ring: oklch(0.7 0.13 162);
+  --sidebar-ring: oklch(0.68 0.18 265);
 }
 
 @layer base {
@@ -120,6 +124,16 @@
     @apply bg-background text-foreground;
     overflow-x: hidden;
     max-width: 100vw;
+    font-feature-settings: "cv02", "cv03", "cv04", "cv11"; /* Geist ligatures */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+  /* Typographic defaults */
+  h1, h2, h3, h4 {
+    text-wrap: balance; /* nicer line breaks for headings */
+  }
+  p {
+    text-wrap: pretty;
   }
 }
 
@@ -196,11 +210,11 @@ html {
   height: 8px !important;
 }
 [data-slot="slider-range"] {
-  background-color: var(--primary, hsl(160 84% 39%)) !important;
+  background-color: var(--primary, oklch(0.50 0.20 265)) !important;
   height: 8px !important;
 }
 [data-slot="slider-thumb"] {
-  background-color: var(--primary, hsl(160 84% 39%)) !important;
+  background-color: var(--primary, oklch(0.50 0.20 265)) !important;
   height: 20px !important;
   width: 20px !important;
   border: 3px solid var(--background, white) !important;
@@ -219,20 +233,283 @@ section[id] {
   scroll-margin-top: 5rem;
 }
 
-/* Animated gradient orb (hero) */
-@keyframes orb-drift {
-  0%, 100% { transform: translate(0, 0) scale(1); }
-  33% { transform: translate(30px, -20px) scale(1.08); }
-  66% { transform: translate(-20px, 25px) scale(0.95); }
+/* ========================================
+   DESIGN SYSTEM — Interactive States
+   Reusable rules, not one-off styling.
+   Every clickable element is visually distinct from static content.
+   ======================================== */
+
+/* 1. Cursor affordance — pointer for interactive, default for static */
+button,
+[role="button"],
+a[href],
+[role="slider"],
+[role="combobox"],
+[role="menuitem"],
+[role="option"],
+[role="tab"],
+[role="switch"],
+[role="checkbox"],
+[role="radio"],
+summary,
+label:has(input),
+.cursor-pointer {
+  cursor: pointer;
 }
-.hero-orb {
-  animation: orb-drift 18s ease-in-out infinite;
+
+/* Disabled — clearly not-allowed */
+:disabled,
+[aria-disabled="true"],
+[data-disabled] {
+  cursor: not-allowed !important;
+  opacity: 0.45 !important;
+  pointer-events: none !important;
 }
-.hero-orb-2 {
-  animation: orb-drift 22s ease-in-out infinite reverse;
+
+/* 2. Focus-visible — keyboard accessibility (WCAG 2.4.7) */
+:focus-visible {
+  outline: 2px solid var(--ring);
+  outline-offset: 2px;
+  border-radius: 2px;
+}
+/* Remove default outline only when focus-visible is supported */
+:focus:not(:focus-visible) {
+  outline: none;
+}
+
+/* 3. Card lift — reusable hover effect for cards */
+.card-lift {
+  transition: transform var(--duration-base, 200ms) var(--ease, cubic-bezier(0.22, 1, 0.36, 1)),
+              box-shadow var(--duration-base, 200ms) var(--ease, cubic-bezier(0.22, 1, 0.36, 1)),
+              border-color var(--duration-base, 200ms) var(--ease, cubic-bezier(0.22, 1, 0.36, 1));
+}
+.card-lift:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 25px -5px oklch(0.50 0.20 265 / 0.12), 0 4px 10px -3px oklch(0 0 0 / 0.08);
+  border-color: oklch(0.50 0.20 265 / 0.3);
+}
+
+/* 4. Glow button — primary CTA hover with lift + glow */
+.glow-btn {
+  position: relative;
+  overflow: hidden;
+  transition: transform var(--duration-base, 200ms) var(--ease, cubic-bezier(0.22, 1, 0.36, 1)),
+              box-shadow var(--duration-base, 200ms) var(--ease, cubic-bezier(0.22, 1, 0.36, 1));
+}
+.glow-btn:hover {
+  transform: translateY(-2px) scale(1.02);
+  box-shadow: 0 10px 30px -5px var(--glow, oklch(0.50 0.20 265 / 0.25)), 0 0 0 1px var(--primary);
+}
+.glow-btn:active {
+  transform: translateY(0) scale(0.98);
+}
+
+/* 5. Nav item — active + hover (bold weight + tinted bg) */
+nav button {
+  transition: background-color 150ms ease, color 150ms ease, font-weight 150ms ease;
+}
+nav button[aria-current="page"],
+nav button[class*="bg-primary"] {
+  font-weight: 600;
+}
+
+/* 6. Select trigger — hover border + focus ring */
+[data-slot="select-trigger"] {
+  transition: border-color 150ms ease, box-shadow 150ms ease;
+}
+[data-slot="select-trigger"]:hover {
+  border-color: oklch(0.50 0.20 265 / 0.5);
+}
+[data-slot="select-trigger"]:focus-visible {
+  border-color: var(--primary);
+  box-shadow: 0 0 0 3px oklch(0.50 0.20 265 / 0.15);
+}
+
+/* 7. Copy-link — always 50% visible, full on hover */
+button[aria-label*="Copy link"] {
+  opacity: 0.4;
+  transition: opacity 150ms ease, color 150ms ease, background-color 150ms ease;
+}
+button[aria-label*="Copy link"]:hover,
+button[aria-label*="Copy link"]:focus-visible {
+  opacity: 1;
+  color: var(--primary);
+  background-color: oklch(0.50 0.20 265 / 0.1);
+}
+
+/* 8. Chart crosshair cursor */
+.recharts-wrapper,
+.recharts-surface {
+  cursor: crosshair;
+}
+.recharts-tooltip-wrapper {
+  cursor: default;
+}
+
+/* 9. Links — underline on hover */
+main a[href^="#"]:hover {
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  text-decoration-color: var(--primary);
+}
+
+/* 10. Pill/chip hover (filter buttons) */
+button.rounded-full {
+  transition: transform 150ms ease, background-color 150ms ease;
+}
+button.rounded-full:hover {
+  transform: scale(1.04);
+}
+
+/* 11. Heatmap cells — pointer + scale on hover */
+[title*="↔"],
+[title*="Predicted"] {
+  cursor: pointer;
+  transition: transform 150ms ease, outline 150ms ease;
+}
+[title*="↔"]:hover,
+[title*="Predicted"]:hover {
+  transform: scale(1.15);
+  z-index: 10;
+  outline: 2px solid var(--primary);
+  outline-offset: 1px;
+}
+
+/* 12. Tooltip triggers — help cursor */
+[title],
+.cursor-help {
+  cursor: help;
+}
+
+/* 13. Skeleton animation (loading states) */
+@keyframes shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+.skeleton-shimmer {
+  background: linear-gradient(90deg, var(--muted) 25%, oklch(0.94 0.005 165) 50%, var(--muted) 75%);
+  background-size: 200% 100%;
+  animation: shimmer 1.5s infinite;
+}
+
+/* 14. Reduced motion — respect user preference (WCAG 2.3.3) */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* 15. Skip-to-content link (accessibility) */
+.skip-link {
+  position: absolute;
+  top: -40px;
+  left: 0;
+  z-index: 9999;
+  padding: 8px 16px;
+  background: var(--primary);
+  color: var(--primary-foreground);
+  border-radius: 0 0 8px 0;
+  font-size: 0.875rem;
+  font-weight: 600;
+  transition: top 200ms ease;
+}
+.skip-link:focus {
+  top: 0;
+}
+
+/* Wave gradient title — colors flow left to right like a wave, repeating endlessly */
+@keyframes heading-wave {
+  0%   { background-position: 0% 50%; }
+  100% { background-position: 300% 50%; }
+}
+.heading-gradient {
+  background-image: linear-gradient(
+    90deg,
+    #4f46e5 0%,
+    #7c3aed 10%,
+    #c026d3 20%,
+    #f43f5e 30%,
+    #c026d3 40%,
+    #7c3aed 50%,
+    #4f46e5 60%,
+    #7c3aed 70%,
+    #c026d3 80%,
+    #f43f5e 90%,
+    #4f46e5 100%
+  );
+  background-size: 300% 100%;
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: heading-wave 12s linear infinite;
 }
 @media (prefers-reduced-motion: reduce) {
-  .hero-orb, .hero-orb-2 { animation: none; }
+  .heading-gradient {
+    animation: none;
+    background-position: 0% 50%;
+  }
+}
+
+/* Mesh gradient background for hero */
+.hero-mesh-bg {
+  background:
+    radial-gradient(at 20% 30%, oklch(0.93 0.05 162 / 0.5) 0px, transparent 50%),
+    radial-gradient(at 80% 20%, oklch(0.93 0.04 50 / 0.3) 0px, transparent 50%),
+    radial-gradient(at 60% 80%, oklch(0.93 0.04 230 / 0.3) 0px, transparent 50%);
+}
+
+/* Noise texture overlay (premium tactile feel) */
+.noise-overlay::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+  opacity: 0.035;
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* Glassmorphism cards */
+.glass-card {
+  background: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.5);
+}
+.dark .glass-card {
+  background: rgba(20, 25, 25, 0.7);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+/* Glow effect for primary buttons */
+.glow-btn {
+  position: relative;
+  overflow: hidden;
+  transition: transform 200ms ease, box-shadow 200ms ease;
+}
+.glow-btn::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at var(--mouse-x, 50%) var(--mouse-y, 50%), rgba(255,255,255,0.3), transparent 50%);
+  opacity: 0;
+  transition: opacity 200ms ease;
+  pointer-events: none;
+}
+.glow-btn:hover::after {
+  opacity: 1;
+}
+.glow-btn:hover {
+  transform: translateY(-2px) scale(1.02);
+  box-shadow: 0 10px 30px -5px var(--glow), 0 0 0 1px var(--primary);
+}
+.glow-btn:active {
+  transform: translateY(0) scale(0.98);
 }
 
 /* Subtle dot grid background (hero) */
@@ -241,14 +518,6 @@ section[id] {
   background-size: 24px 24px;
   mask-image: radial-gradient(ellipse at center, black 30%, transparent 75%);
   -webkit-mask-image: radial-gradient(ellipse at center, black 30%, transparent 75%);
-}
-
-/* Card hover lift */
-.card-lift {
-  transition: transform 200ms ease, box-shadow 200ms ease;
-}
-.card-lift:hover {
-  transform: translateY(-3px);
 }
 
 /* Gradient text shimmer for hero title */
