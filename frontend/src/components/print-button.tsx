@@ -1,6 +1,14 @@
 "use client";
 
-export function PrintButton({ className = "" }: { className?: string }) {
+import type { ReactNode } from "react";
+
+export function PrintButton({
+  className = "",
+  children,
+}: {
+  className?: string;
+  children?: ReactNode;
+}) {
   const handlePrint = () => {
     // Add a printing class so the @media print CSS shows only the report
     document.body.classList.add("printing");
@@ -16,8 +24,13 @@ export function PrintButton({ className = "" }: { className?: string }) {
   };
 
   return (
-    <button onClick={handlePrint} className={className} aria-label="Print or save report as PDF">
-      {/* content supplied by parent */}
+    <button
+      type="button"
+      onClick={handlePrint}
+      className={className}
+      aria-label="Print or save report as PDF"
+    >
+      {children}
     </button>
   );
 }

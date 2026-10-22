@@ -128,6 +128,14 @@
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
   }
+  /* Smooth scrolling for in-page anchor links (e.g. "Try the Predictor" -> #predictor).
+     MUST be on the document scrolling element (html). */
+  html {
+    scroll-behavior: smooth;
+  }
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+  }
   /* Typographic defaults */
   h1, h2, h3, h4 {
     text-wrap: balance; /* nicer line breaks for headings */
@@ -149,14 +157,6 @@
    so they scroll horizontally within the container. */
 .overflow-x-auto {
   min-width: 0;
-}
-
-/* Smooth scrolling for nav anchors (respect reduced motion) */
-html {
-  scroll-behavior: smooth;
-}
-@media (prefers-reduced-motion: reduce) {
-  html { scroll-behavior: auto; }
 }
 
 /* Custom scrollbar */
@@ -422,36 +422,48 @@ button.rounded-full:hover {
   top: 0;
 }
 
-/* Wave gradient title — colors flow left to right like a wave, repeating endlessly */
+/* Wave gradient title — colors flow left to right like a wave, repeating endlessly.
+   Technique: the gradient contains the symmetric pattern TWICE (wave 1 in 0-50%,
+   wave 2 in 50-100%), and background-size is 200% so the visible window at
+   position 0% (left half = wave 1) is identical to the window at 100% (right
+   half = wave 2). That makes the linear loop mathematically seamless — no jump. */
 @keyframes heading-wave {
-  0%   { background-position: 0% 50%; }
-  100% { background-position: 300% 50%; }
+  /* Animate 100% -> 0% so the background shifts RIGHT, which makes the colours
+     appear to travel LEFT -> RIGHT across the text (a true left-to-right wave). */
+  0%   { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
 }
 .heading-gradient {
   background-image: linear-gradient(
     90deg,
     #4f46e5 0%,
-    #7c3aed 10%,
-    #c026d3 20%,
-    #f43f5e 30%,
-    #c026d3 40%,
-    #7c3aed 50%,
-    #4f46e5 60%,
-    #7c3aed 70%,
-    #c026d3 80%,
-    #f43f5e 90%,
+    #7c3aed 8.33%,
+    #c026d3 16.67%,
+    #f43f5e 25%,
+    #c026d3 33.33%,
+    #7c3aed 41.67%,
+    #4f46e5 50%,
+    #7c3aed 58.33%,
+    #c026d3 66.67%,
+    #f43f5e 75%,
+    #c026d3 83.33%,
+    #7c3aed 91.67%,
     #4f46e5 100%
   );
-  background-size: 300% 100%;
+  background-size: 200% 100%;
+  background-repeat: no-repeat;
   background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-  animation: heading-wave 12s linear infinite;
+  animation: heading-wave 8s linear infinite;
+  /* Subtle live text-shadow for depth without breaking the clip */
+  filter: drop-shadow(0 1px 2px rgba(79, 70, 229, 0.15));
 }
 @media (prefers-reduced-motion: reduce) {
   .heading-gradient {
     animation: none;
     background-position: 0% 50%;
+    filter: none;
   }
 }
 

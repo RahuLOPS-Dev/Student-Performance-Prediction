@@ -52,12 +52,13 @@ export default async function Home() {
               helping teachers spot at-risk students early.
             </p>
             <div className="mt-8 flex flex-wrap items-center justify-center gap-3">
-              <a href="#predictor">
-                <button className="inline-flex h-12 items-center gap-2 rounded-xl bg-gradient-to-r from-indigo-600 to-violet-600 px-7 text-sm font-bold text-white shadow-lg shadow-indigo-500/25 transition-all hover:shadow-xl hover:shadow-indigo-500/30">
-                  <Sparkles className="h-4 w-4" /> Try the Predictor
-                </button>
+              <a
+                href="#predictor"
+                className="inline-flex h-12 cursor-pointer items-center gap-2 rounded-xl bg-gradient-to-r from-indigo-600 to-violet-600 px-7 text-sm font-bold text-white shadow-lg shadow-indigo-500/25 transition-all hover:shadow-xl hover:shadow-indigo-500/30 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+              >
+                <Sparkles className="h-4 w-4" /> Try the Predictor
               </a>
-              <PrintButton className="inline-flex h-12 items-center gap-2 rounded-xl border-2 border-indigo-200 bg-white px-5 text-sm font-semibold text-indigo-700 transition hover:bg-indigo-50">
+              <PrintButton className="inline-flex h-12 items-center gap-2 rounded-xl border-2 border-indigo-200 bg-white px-5 text-sm font-semibold text-indigo-700 transition hover:bg-indigo-50 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">
                 <span className="inline-flex items-center gap-2">
                   <BookOpen className="h-4 w-4" /> Download Report
                 </span>
